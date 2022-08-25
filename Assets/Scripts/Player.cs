@@ -4,22 +4,12 @@ using UnityEngine;
 
 public class Player : Gravity
 {
-    
-    public enum Direct
-    {
-        Down,
-        Up,
-        Left,
-        Right
-    };
-
+    private bool pushFlag = false;
     public float mForce;
     public float maxSpeed;
     public float mBrake;
-
-    public Gravity gravity;
-    public Rigidbody2D rb = null;
-    public Direct mDirect = Direct.Down;
+    public GroundTrigger ground;
+    
 
     public void Move()
     {
@@ -29,7 +19,7 @@ public class Player : Gravity
         bool downFlag = Input.GetKey(KeyCode.DownArrow);
 
 
-        if (mDirect == gravity.Direct.Down || gravity.mDirect == Direct.Up)
+        if (mDirect == Gravity.Direct.Down || mDirect == Gravity.Direct.Up)
         {
             if (-maxSpeed < rb.velocity.x && rb.velocity.x < maxSpeed)
             {
@@ -51,7 +41,7 @@ public class Player : Gravity
                 }
             }
         }
-        else if (mDirect == gravity.Direct.Left || mDirect == gravity.Direct.Right)
+        else if (mDirect == Gravity.Direct.Left || mDirect == Gravity.Direct.Right)
         {
             if (-maxSpeed < rb.velocity.y && rb.velocity.y < maxSpeed)
             {
@@ -72,6 +62,22 @@ public class Player : Gravity
                     rb.velocity = new Vector2(rb.velocity.x, offset);
                 }
             }
+        }
+    }
+
+    private void GravityChange()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if ((!pushFlag) && ground.IsGround())
+            {
+                pushFlag = true;
+                mDirect = ChangeDirect();
+            }
+        }
+        else
+        {
+            pushFlag = false;
         }
     }
 
