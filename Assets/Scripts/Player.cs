@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public enum Direct
+    {
+        Down,
+        Up,
+        Left,
+        Right
+    };
+
+    public float mForce;
+    public float maxSpeed;
+    public float mBrake;
+
+    
+    public Rigidbody2D rb = null;
+    public Direct mDirect = Direct.Down;
 
     public void Move()
     {
@@ -12,9 +27,8 @@ public class Player : MonoBehaviour
         bool upFlag = Input.GetKey(KeyCode.UpArrow);
         bool downFlag = Input.GetKey(KeyCode.DownArrow);
 
-        public float mForce;
 
-        if (mDirect == Gravity.Direct.Down || mDirect == Gravity.Direct.Up)
+        if (mDirect == Direct.Down || mDirect == Direct.Up)
         {
             if (-maxSpeed < rb.velocity.x && rb.velocity.x < maxSpeed)
             {
@@ -36,7 +50,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        else if (mDirect == Gravity.Direct.Left  mDirect == Gravity.Direct.Right)
+        else if (mDirect == Direct.Left || mDirect == Direct.Right)
         {
             if (-maxSpeed < rb.velocity.y && rb.velocity.y < maxSpeed)
             {
@@ -72,3 +86,4 @@ public class Player : MonoBehaviour
         Move();
     }
 }
+
