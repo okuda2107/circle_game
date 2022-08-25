@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Gravity
 {
+    
     public enum Direct
     {
         Down,
@@ -16,7 +17,7 @@ public class Player : MonoBehaviour
     public float maxSpeed;
     public float mBrake;
 
-    
+    public Gravity gravity;
     public Rigidbody2D rb = null;
     public Direct mDirect = Direct.Down;
 
@@ -28,7 +29,7 @@ public class Player : MonoBehaviour
         bool downFlag = Input.GetKey(KeyCode.DownArrow);
 
 
-        if (mDirect == Direct.Down || mDirect == Direct.Up)
+        if (mDirect == gravity.Direct.Down || gravity.mDirect == Direct.Up)
         {
             if (-maxSpeed < rb.velocity.x && rb.velocity.x < maxSpeed)
             {
@@ -50,7 +51,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        else if (mDirect == Direct.Left || mDirect == Direct.Right)
+        else if (mDirect == gravity.Direct.Left || mDirect == gravity.Direct.Right)
         {
             if (-maxSpeed < rb.velocity.y && rb.velocity.y < maxSpeed)
             {
