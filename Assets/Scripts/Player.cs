@@ -13,11 +13,10 @@ public class Player : Gravity
 
     public void Move()
     {
-        bool leftFlag = Input.GetKey(KeyCode.LeftArrow);
-        bool rightFlag = Input.GetKey(KeyCode.RightArrow);
-        bool upFlag = Input.GetKey(KeyCode.UpArrow);
-        bool downFlag = Input.GetKey(KeyCode.DownArrow);
-
+        bool leftFlag = Input.GetKey(KeyCode.A);
+        bool rightFlag = Input.GetKey(KeyCode.D);
+        bool upFlag = Input.GetKey(KeyCode.W);
+        bool downFlag = Input.GetKey(KeyCode.S);
 
         if (mDirect == Gravity.Direct.Down || mDirect == Gravity.Direct.Up)
         {
@@ -67,7 +66,7 @@ public class Player : Gravity
 
     private void GravityChange()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             if ((!pushFlag) && ground.IsGround())
             {

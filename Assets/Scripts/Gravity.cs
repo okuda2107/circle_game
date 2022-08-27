@@ -48,9 +48,29 @@ public class Gravity : MonoBehaviour
 
     protected Direct ChangeDirect()
     {
-        if (mTag == Tag.change)
+        if (mTag == Tag.capture)
         {
-            
+            if (Input.GetKey(KeyCode.A))
+            {
+                return Direct.Left;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                return Direct.Right;
+            }
+            if (Input.GetKey(KeyCode.W))
+            {
+                return Direct.Up;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                return Direct.Down;
+            }
+            return mDirect;
+        }
+        else
+        {
+            return mDirect;
         }
     }
 
