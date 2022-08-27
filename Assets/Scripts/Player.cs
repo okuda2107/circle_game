@@ -10,6 +10,13 @@ public class Player : Gravity
     public float mBrake;
     public GroundTrigger ground;
     
+    [System.NonSerialized] public int mLife = 5;
+
+    public enum State
+    {
+        Alive,
+        Dead
+    };
 
     public void Move()
     {

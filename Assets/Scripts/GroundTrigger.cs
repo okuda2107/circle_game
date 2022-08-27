@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GroundTrigger : MonoBehaviour
 {
-
-private string groundTag = "Ground";
 private bool isGround = false;
 private bool isDamageGround = false;
 private bool isGroundEnter, isGroundStay, isGroundExit;
