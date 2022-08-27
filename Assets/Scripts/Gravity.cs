@@ -7,7 +7,7 @@ public class Gravity : MonoBehaviour
     public Rigidbody2D rb = null;
     public Direct mDirect = Direct.Down;
     public Tag mTag = Tag.capture;
-    public float gravity = 9.81f;
+    public float gravity;
 
     public enum Direct
     {
