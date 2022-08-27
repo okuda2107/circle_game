@@ -4,8 +4,26 @@ using UnityEngine;
 
 public class Gravity : MonoBehaviour
 {
+    public Rigidbody2D rb = null;
+    public Direct mDirect = Direct.Down;
+    public Tag mTag = Tag.capture;
+    public float gravity = 9.81f;
 
-    public void GravityForce() //�d�͂���p������֐�
+    public enum Direct
+    {
+        Down,
+        Up,
+        Left,
+        Right
+    };
+
+    public enum Tag
+    {
+        capture, //自分でオンオフできる．オンの状態
+        release, //自分でオンオフできる．オフの状態
+    };
+
+    public void GravityForce() //�d�͂���p������֐�
     {
         switch (mDirect)
         {
@@ -28,6 +46,13 @@ public class Gravity : MonoBehaviour
         }
     }
 
+    protected Direct ChangeDirect()
+    {
+        if (mTag == Tag.change)
+        {
+            
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
