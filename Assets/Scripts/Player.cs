@@ -9,7 +9,16 @@ public class Player : Gravity
     public float maxSpeed;
     public float mBrake;
     public GroundTrigger ground;
-    
+    [System.NonSerialized] public int mLife = 5;
+
+    public enum State
+    {
+        Alive,
+        Dead
+    };
+
+    public AnimationCurve dashCurve;
+    private float dashTime;
 
     public void Move()
     {
@@ -18,9 +27,15 @@ public class Player : Gravity
         bool upFlag = Input.GetKey(KeyCode.W);
         bool downFlag = Input.GetKey(KeyCode.S);
 
+        float xSpeed;
+        float ySpeed;
+
         if (mDirect == Gravity.Direct.Down || mDirect == Gravity.Direct.Up)
         {
-            if (-maxSpeed < rb.velocity.x && rb.velocity.x < maxSpeed)
+            xSpeed = 0.0f;
+            ySpeed = rb.velocity.y;
+            
+            if (-maxSpeed <= rb.velocity.x && rb.velocity.x <= maxSpeed)
             {
                 if (leftFlag && !rightFlag)
                 {
@@ -42,7 +57,7 @@ public class Player : Gravity
         }
         else if (mDirect == Gravity.Direct.Left || mDirect == Gravity.Direct.Right)
         {
-            if (-maxSpeed < rb.velocity.y && rb.velocity.y < maxSpeed)
+            if (-maxSpeed <= rb.velocity.y && rb.velocity.y <= maxSpeed)
             {
                 if (upFlag && !downFlag)
                 {
@@ -72,6 +87,7 @@ public class Player : Gravity
             {
                 pushFlag = true;
                 mDirect = ChangeDirect();
+                Debug.Log("asdfjad");
             }
         }
         else
@@ -89,7 +105,9 @@ public class Player : Gravity
     // Update is called once per frame
     void Update()
     {
+        GravityForce();
         Move();
+        GravityChange();
     }
 }
 
