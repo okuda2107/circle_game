@@ -98,7 +98,7 @@ public class Player : Gravity
     {
         GravityForce();
         Move();
-        if (Input.GetKey(KeyCode.LeftShift) && ground.IsGround())
+        if (Input.GetKey(KeyCode.LeftShift) && ground.IsGround() && ground.IsObject())
         {
             mDirect = ChangeDirect();
         }
