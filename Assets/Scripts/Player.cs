@@ -96,7 +96,13 @@ public class Player : Gravity
     // Update is called once per frame
     void Update()
     {
+        GravityForce();
         Move();
+        if (Input.GetKey(KeyCode.LeftShift) && ground.IsGround())
+        {
+            mDirect = ChangeDirect();
+        }
+        Debug.Log(mDirect);
     }
 }
 

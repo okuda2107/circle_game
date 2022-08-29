@@ -66,6 +66,7 @@ public class Gravity : MonoBehaviour
                 transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f));
                 return Direct.Down;
             }
+            Debug.Log("adfadf");
             return mDirect;
         }
         else
