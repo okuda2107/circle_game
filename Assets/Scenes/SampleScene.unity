@@ -2315,7 +2315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mDirect: 0
   mTag: 0
-  gravity: 50
+  gravity: 25
   mForce: 50
   maxSpeed: 10
   mBrake: 0.99
