@@ -6,8 +6,10 @@ public class GroundTrigger : MonoBehaviour
 {
 private bool isGround = false;
 private bool isDamageGround = false;
+private bool isMoveGround = false;
 private bool isGroundEnter, isGroundStay, isGroundExit;
 private bool isDamageGroundEnter, isDamageGroundStay, isDamageGroundExit;
+    private bool isMoveGroundEnter, isMoveGroundStay, isMoveGroundExit;
 
 //接地判定を返すメソッド
 //物理判定の更新毎に呼ぶ必要がある
@@ -44,7 +46,24 @@ public bool IsDamageGround()
    isDamageGroundExit = false;
    return isDamageGround; 
 }
- 
+
+public bool IsMoveGround()
+{
+   if(isMoveGroundEnter || isMoveGroundStay)
+   {
+      isMoveGround = true;
+   }
+   else if(isMoveGroundExit)
+   {
+      isMoveGround = false;
+   } 
+
+   isMoveGroundEnter = false;
+   isMoveGroundStay = false;
+   isMoveGroundExit = false;
+   return isMoveGround; 
+}
+
 private void OnTriggerEnter2D(Collider2D collision)
 {
    switch (collision.tag)
@@ -55,6 +74,10 @@ private void OnTriggerEnter2D(Collider2D collision)
 
       case "DamageGround":
       isDamageGroundEnter = true;
+      break;
+
+      case "MoveGround":
+      isMoveGroundEnter = true;
       break;
    }
 }
@@ -70,6 +93,10 @@ private void OnTriggerStay2D(Collider2D collision)
       case "DamageGround":
       isDamageGroundStay = true;
       break;
+
+      case "MoveGround":
+      isMoveGroundStay = true;
+      break;
    }
 }
      
@@ -83,6 +110,10 @@ private void OnTriggerExit2D(Collider2D collision)
 
       case "DamageGround":
       isDamageGroundExit = true;
+      break;
+
+      case "MoveGround":
+      isMoveGroundExit = true;
       break;
    }
 }
