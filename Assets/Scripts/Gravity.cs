@@ -7,7 +7,7 @@ public class Gravity : MonoBehaviour
     [System.NonSerialized] public Rigidbody2D rb = null;
     public Direct mDirect = Direct.Down;
     public Tag mTag = Tag.capture;
-    public float gravity;
+    public float gravity = 25;
 
     public enum Direct
     {
@@ -66,7 +66,6 @@ public class Gravity : MonoBehaviour
                 transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f));
                 return Direct.Down;
             }
-            Debug.Log("adfadf");
             return mDirect;
         }
         else
@@ -78,12 +77,12 @@ public class Gravity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        GravityForce();
     }
 }

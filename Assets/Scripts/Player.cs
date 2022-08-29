@@ -9,6 +9,8 @@ public class Player : Gravity
     public float maxSpeed;
     public float mBrake;
     public GroundTrigger ground;
+
+    public mActors actors;
     
     [System.NonSerialized] public int mLife = 5;
 
@@ -98,11 +100,15 @@ public class Player : Gravity
     {
         GravityForce();
         Move();
-        if (Input.GetKey(KeyCode.LeftShift) && ground.IsGround() && ground.IsObject())
+        if (Input.GetKey(KeyCode.LeftShift) && (ground.IsGround() || ground.IsObject()))
         {
+            Debug.Log("adfadf");
             mDirect = ChangeDirect();
+            foreach (var obj in actors.actors)
+            {
+                obj.mDirect = ChangeDirect();
+            }
         }
-        Debug.Log(mDirect);
     }
 }
 
