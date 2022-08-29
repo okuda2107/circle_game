@@ -9,6 +9,10 @@ public class Player : Gravity
     public float maxSpeed;
     public float mBrake;
     public GroundTrigger ground;
+<<<<<<< HEAD
+=======
+    
+>>>>>>> remaster
     [System.NonSerialized] public int mLife = 5;
 
     public enum State
@@ -16,9 +20,12 @@ public class Player : Gravity
         Alive,
         Dead
     };
+<<<<<<< HEAD
 
     public AnimationCurve dashCurve;
     private float dashTime;
+=======
+>>>>>>> remaster
 
     public void Move()
     {
@@ -107,7 +114,15 @@ public class Player : Gravity
     {
         GravityForce();
         Move();
+<<<<<<< HEAD
         GravityChange();
+=======
+        if (Input.GetKey(KeyCode.LeftShift) && ground.IsGround())
+        {
+            mDirect = ChangeDirect();
+        }
+        Debug.Log(mDirect);
+>>>>>>> remaster
     }
 }
 
