@@ -11,12 +11,15 @@ public class Player : Gravity
     public GroundTrigger ground;
     
     [System.NonSerialized] public int mLife = 5;
+    public int mTileDamage;
 
     public enum State
     {
         Alive,
         Dead
     };
+
+    public State mState;
 
     public void Move()
     {
@@ -86,11 +89,23 @@ public class Player : Gravity
             pushFlag = false;
         }
     }
+    //DamageGround‚Ìƒ_ƒ[ƒWˆ—
+    private void TileDamage()
+    {
+        mLife -= mTileDamage;
+        if(mLife == 0)
+        {
+            mState = State.Dead;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
+        // Sate‚Ì‰Šúó‘Ô
+        mState = State.Alive;
     }
 
     // Update is called once per frame
@@ -103,6 +118,25 @@ public class Player : Gravity
             mDirect = ChangeDirect();
         }
         Debug.Log(mDirect);
+
+        if (ground.IsDamageGround())
+        {
+            TileDamage();
+        }
+        Debug.Log(mLife);
+    
+        if (mState == State.Dead)
+        {
+            Debug.Log("Player dead.");
+        }
+        else if(mState == State.Alive)
+        {
+            Debug.Log("Player Alive.");
+        }
+        else
+        {
+            Debug.Log("Eror");
+        }
     }
 }
 
