@@ -14,7 +14,6 @@ public class MoveGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComopnent<Rigidbody2D>();
         floorDirection = 1;
         Vector2 firstPosi = this.transform.position;
         Debug.Log("x= " + firstPosi.x);
@@ -24,6 +23,7 @@ public class MoveGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector2 firstPosi;
         Vector2 posi = this.transform.position;
         if(0.0f < (posi.x - firstPosi.x) && (posi.x - firstPosi.x) < moveDistance)
         {

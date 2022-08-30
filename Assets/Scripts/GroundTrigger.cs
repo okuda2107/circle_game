@@ -9,7 +9,7 @@ private bool isDamageGround = false;
 private bool isMoveGround = false;
 private bool isGroundEnter, isGroundStay, isGroundExit;
 private bool isDamageGroundEnter, isDamageGroundStay, isDamageGroundExit;
-    private bool isMoveGroundEnter, isMoveGroundStay, isMoveGroundExit;
+private bool isMoveGroundEnter, isMoveGroundStay, isMoveGroundExit;
 
 //接地判定を返すメソッド
 //物理判定の更新毎に呼ぶ必要がある

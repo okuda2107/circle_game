@@ -9,6 +9,7 @@ public class Player : Gravity
     public float maxSpeed;
     public float mBrake;
     public GroundTrigger ground;
+    public MoveGround mground;
     
     [System.NonSerialized] public int mLife = 5;
     public int mTileDamage;
@@ -99,6 +100,12 @@ public class Player : Gravity
         }
     }
 
+    private AddMoveForce()
+    {
+        transform.localScale = new Vector3(mground.floorDirection, 1, 1);
+        rb.AddForce(new Vector2(mground.floorForce * floorDirection, 0.0f));
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -136,6 +143,11 @@ public class Player : Gravity
         else
         {
             Debug.Log("Eror");
+        }
+
+        if (ground.IsMoveGround())
+        {
+            AddMoveForce();
         }
     }
 }
