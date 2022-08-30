@@ -10,12 +10,13 @@ public class MoveGround : MonoBehaviour
     public float floorMaxSpeed;
     public float floorForce;
     private int floorDirection;
+    private Vector2 firstPosi;
 
     // Start is called before the first frame update
     void Start()
     {
         floorDirection = 1;
-        Vector2 firstPosi = this.transform.position;
+        firstPosi = this.transform.position;
         Debug.Log("x= " + firstPosi.x);
         Debug.Log("y= " + firstPosi.y);
     }
@@ -23,7 +24,6 @@ public class MoveGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 firstPosi;
         Vector2 posi = this.transform.position;
         if(0.0f < (posi.x - firstPosi.x) && (posi.x - firstPosi.x) < moveDistance)
         {

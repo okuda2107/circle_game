@@ -9,28 +9,19 @@ public class Player : Gravity
     public float maxSpeed;
     public float mBrake;
     public GroundTrigger ground;
-<<<<<<< HEAD
     public MoveGround mground;
     
     [System.NonSerialized] public int mLife = 5;
     public int mTileDamage;
-=======
 
     public mActors actors;
     
-    [System.NonSerialized] public int mLife = 5;
-    
->>>>>>> origin/okuda
-
     public enum State
     {
         Alive,
         Dead
     };
-    
     [System.NonSerialized] public State mState = State.Alive;
-
-    public State mState;
 
     public void Move()
     {
@@ -110,19 +101,10 @@ public class Player : Gravity
         }
     }
 
-    private AddMoveForce()
-    {
-        transform.localScale = new Vector3(mground.floorDirection, 1, 1);
-        rb.AddForce(new Vector2(mground.floorForce * floorDirection, 0.0f));
-    }
-
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
-        // SateÇÃèâä˙èÛë‘
-        mState = State.Alive;
     }
 
     // Update is called once per frame
@@ -138,7 +120,6 @@ public class Player : Gravity
                 obj.mDirect = ChangeDirect();
             }
         }
-<<<<<<< HEAD
         Debug.Log(mDirect);
 
         if (ground.IsDamageGround())
@@ -159,13 +140,6 @@ public class Player : Gravity
         {
             Debug.Log("Eror");
         }
-
-        if (ground.IsMoveGround())
-        {
-            AddMoveForce();
-        }
-=======
->>>>>>> origin/okuda
     }
 }
 
