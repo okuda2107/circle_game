@@ -102,19 +102,16 @@ public class Player : Gravity
         }
     }
 
-    private AddMoveForce()
-    {
-        transform.localScale = new Vector3(mground.floorDirection, 1, 1);
-        rb.AddForce(new Vector2(mground.floorForce * floorDirection, 0.0f));
-    }
-
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+<<<<<<< HEAD
         
         // Sate�̏������
         mState = State.Alive;
+=======
+>>>>>>> circle_game/haruki
     }
 
     // Update is called once per frame
