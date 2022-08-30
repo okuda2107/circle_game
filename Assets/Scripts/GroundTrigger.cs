@@ -11,10 +11,7 @@ private bool isObject = false;
 private bool isGroundEnter, isGroundStay, isGroundExit;
 private bool isDamageGroundEnter, isDamageGroundStay, isDamageGroundExit;
 private bool isMoveGroundEnter, isMoveGroundStay, isMoveGroundExit;
-<<<<<<< HEAD
-=======
 private bool isObjectEnter, isObjectStay, isObjectExit;
->>>>>>> origin/okuda
 
 //接地判定を返すメソッド
 //物理判定の更新毎に呼ぶ必要がある

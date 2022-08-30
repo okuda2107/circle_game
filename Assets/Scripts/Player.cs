@@ -9,18 +9,12 @@ public class Player : Gravity
     public float maxSpeed;
     public float mBrake;
     public GroundTrigger ground;
-<<<<<<< HEAD
     public MoveGround mground;
     
     [System.NonSerialized] public int mLife = 5;
     public int mTileDamage;
-=======
 
     public mActors actors;
-    
-    [System.NonSerialized] public int mLife = 5;
-    
->>>>>>> origin/okuda
 
     public enum State
     {
@@ -29,8 +23,6 @@ public class Player : Gravity
     };
     
     [System.NonSerialized] public State mState = State.Alive;
-
-    public State mState;
 
     public void Move()
     {
@@ -100,7 +92,7 @@ public class Player : Gravity
             pushFlag = false;
         }
     }
-    //DamageGround‚Ìƒ_ƒ[ƒWˆ—
+    //DamageGroundï¿½Ìƒ_ï¿½ï¿½ï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½
     private void TileDamage()
     {
         mLife -= mTileDamage;
@@ -121,7 +113,7 @@ public class Player : Gravity
     {
         rb = GetComponent<Rigidbody2D>();
         
-        // Sate‚Ì‰Šúó‘Ô
+        // Sateï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         mState = State.Alive;
     }
 
@@ -138,7 +130,6 @@ public class Player : Gravity
                 obj.mDirect = ChangeDirect();
             }
         }
-<<<<<<< HEAD
         Debug.Log(mDirect);
 
         if (ground.IsDamageGround())
@@ -164,8 +155,6 @@ public class Player : Gravity
         {
             AddMoveForce();
         }
-=======
->>>>>>> origin/okuda
     }
 }
 
