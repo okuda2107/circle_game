@@ -13,12 +13,15 @@ public class Player : Gravity
     public mActors actors;
     
     [System.NonSerialized] public int mLife = 5;
+    
 
     public enum State
     {
         Alive,
         Dead
     };
+    
+    [System.NonSerialized] public State mState = State.Alive;
 
     public void Move()
     {
@@ -102,7 +105,6 @@ public class Player : Gravity
         Move();
         if (Input.GetKey(KeyCode.LeftShift) && (ground.IsGround() || ground.IsObject()))
         {
-            Debug.Log("adfadf");
             mDirect = ChangeDirect();
             foreach (var obj in actors.actors)
             {
