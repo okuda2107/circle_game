@@ -7,9 +7,14 @@ public class GroundTrigger : MonoBehaviour
 private bool isGround = false;
 private bool isDamageGround = false;
 private bool isMoveGround = false;
+private bool isObject = false;
 private bool isGroundEnter, isGroundStay, isGroundExit;
 private bool isDamageGroundEnter, isDamageGroundStay, isDamageGroundExit;
 private bool isMoveGroundEnter, isMoveGroundStay, isMoveGroundExit;
+<<<<<<< HEAD
+=======
+private bool isObjectEnter, isObjectStay, isObjectExit;
+>>>>>>> origin/okuda
 
 //接地判定を返すメソッド
 //物理判定の更新毎に呼ぶ必要がある
@@ -64,6 +69,23 @@ public bool IsMoveGround()
    return isMoveGround; 
 }
 
+public bool IsObject()
+{
+   if(isObjectEnter || isObjectStay)
+   {
+      isObject = true;
+   }
+   else if(isObjectExit)
+   {
+      isObject = false;
+   } 
+
+   isObjectEnter = false;
+   isObjectStay = false;
+   isObjectExit = false;
+   return isObject;
+}
+
 private void OnTriggerEnter2D(Collider2D collision)
 {
    switch (collision.tag)
@@ -78,6 +100,10 @@ private void OnTriggerEnter2D(Collider2D collision)
 
       case "MoveGround":
       isMoveGroundEnter = true;
+      break;
+
+      case "Object":
+      isObjectEnter = true;
       break;
    }
 }
@@ -97,6 +123,10 @@ private void OnTriggerStay2D(Collider2D collision)
       case "MoveGround":
       isMoveGroundStay = true;
       break;
+
+      case "Object":
+      isObjectStay = true;
+      break;
    }
 }
      
@@ -114,6 +144,10 @@ private void OnTriggerExit2D(Collider2D collision)
 
       case "MoveGround":
       isMoveGroundExit = true;
+      break;
+
+      case "Object":
+      isObjectExit = true;
       break;
    }
 }

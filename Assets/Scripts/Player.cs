@@ -9,16 +9,26 @@ public class Player : Gravity
     public float maxSpeed;
     public float mBrake;
     public GroundTrigger ground;
+<<<<<<< HEAD
     public MoveGround mground;
     
     [System.NonSerialized] public int mLife = 5;
     public int mTileDamage;
+=======
+
+    public mActors actors;
+    
+    [System.NonSerialized] public int mLife = 5;
+    
+>>>>>>> origin/okuda
 
     public enum State
     {
         Alive,
         Dead
     };
+    
+    [System.NonSerialized] public State mState = State.Alive;
 
     public State mState;
 
@@ -120,10 +130,15 @@ public class Player : Gravity
     {
         GravityForce();
         Move();
-        if (Input.GetKey(KeyCode.LeftShift) && ground.IsGround())
+        if (Input.GetKey(KeyCode.LeftShift) && (ground.IsGround() || ground.IsObject()))
         {
             mDirect = ChangeDirect();
+            foreach (var obj in actors.actors)
+            {
+                obj.mDirect = ChangeDirect();
+            }
         }
+<<<<<<< HEAD
         Debug.Log(mDirect);
 
         if (ground.IsDamageGround())
@@ -149,6 +164,8 @@ public class Player : Gravity
         {
             AddMoveForce();
         }
+=======
+>>>>>>> origin/okuda
     }
 }
 
