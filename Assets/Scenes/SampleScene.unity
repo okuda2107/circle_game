@@ -2491,12 +2491,9 @@ MonoBehaviour:
   maxSpeed: 10
   mBrake: 0.99
   ground: {fileID: 91664640}
-<<<<<<< HEAD
   mTileDamage: 1
   mState: 0
-=======
   actors: {fileID: 1282784755}
->>>>>>> origin/okuda
 --- !u!70 &1059598767
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2534,11 +2531,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
-<<<<<<< HEAD
---- !u!1 &1201903202
-=======
 --- !u!1 &1209167448
->>>>>>> origin/okuda
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2546,13 +2539,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 1201903204}
   - component: {fileID: 1201903203}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
-=======
   - component: {fileID: 1209167452}
   - component: {fileID: 1209167451}
   - component: {fileID: 1209167450}
@@ -2561,23 +2552,18 @@ GameObject:
   m_Layer: 0
   m_Name: Square
   m_TagString: Object
->>>>>>> origin/okuda
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!156049354 &1201903203
 Grid:
-=======
 --- !u!114 &1209167449
 MonoBehaviour:
->>>>>>> origin/okuda
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 1201903202}
   m_Enabled: 1
   m_CellSize: {x: 1, y: 1, z: 0}
@@ -2985,26 +2971,11 @@ Transform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1398009379
-=======
-  m_GameObject: {fileID: 1209167448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9b1ce62c4e0c4b47bf32add38cfeb7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mDirect: 0
-  mTag: 0
-  gravity: 25
---- !u!61 &1209167450
->>>>>>> origin/okuda
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 1398009377}
-=======
   m_GameObject: {fileID: 1209167448}
 >>>>>>> origin/okuda
   m_Enabled: 1
@@ -3026,21 +2997,13 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
-<<<<<<< HEAD
---- !u!212 &1398009380
-=======
 --- !u!212 &1209167451
->>>>>>> origin/okuda
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 1398009377}
-=======
   m_GameObject: {fileID: 1209167448}
->>>>>>> origin/okuda
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -3086,8 +3049,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
-=======
 --- !u!4 &1209167452
 Transform:
   m_ObjectHideFlags: 0
@@ -3243,7 +3204,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> origin/okuda
 --- !u!1 &1965339999
 GameObject:
   m_ObjectHideFlags: 0

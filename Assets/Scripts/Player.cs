@@ -21,7 +21,6 @@ public class Player : Gravity
         Alive,
         Dead
     };
-    
     [System.NonSerialized] public State mState = State.Alive;
 
     public void Move()
@@ -106,12 +105,6 @@ public class Player : Gravity
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-<<<<<<< HEAD
-        
-        // Sate�̏������
-        mState = State.Alive;
-=======
->>>>>>> circle_game/haruki
     }
 
     // Update is called once per frame
@@ -146,11 +139,6 @@ public class Player : Gravity
         else
         {
             Debug.Log("Eror");
-        }
-
-        if (ground.IsMoveGround())
-        {
-            AddMoveForce();
         }
     }
 }
