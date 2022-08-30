@@ -9,11 +9,18 @@ public class Player : Gravity
     public float maxSpeed;
     public float mBrake;
     public GroundTrigger ground;
+<<<<<<< HEAD
+    public MoveGround mground;
+    
+    [System.NonSerialized] public int mLife = 5;
+    public int mTileDamage;
+=======
 
     public mActors actors;
     
     [System.NonSerialized] public int mLife = 5;
     
+>>>>>>> origin/okuda
 
     public enum State
     {
@@ -22,6 +29,8 @@ public class Player : Gravity
     };
     
     [System.NonSerialized] public State mState = State.Alive;
+
+    public State mState;
 
     public void Move()
     {
@@ -91,11 +100,29 @@ public class Player : Gravity
             pushFlag = false;
         }
     }
+    //DamageGround‚Ìƒ_ƒ[ƒWˆ—
+    private void TileDamage()
+    {
+        mLife -= mTileDamage;
+        if(mLife == 0)
+        {
+            mState = State.Dead;
+        }
+    }
+
+    private AddMoveForce()
+    {
+        transform.localScale = new Vector3(mground.floorDirection, 1, 1);
+        rb.AddForce(new Vector2(mground.floorForce * floorDirection, 0.0f));
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
+        // Sate‚Ì‰Šúó‘Ô
+        mState = State.Alive;
     }
 
     // Update is called once per frame
@@ -111,6 +138,34 @@ public class Player : Gravity
                 obj.mDirect = ChangeDirect();
             }
         }
+<<<<<<< HEAD
+        Debug.Log(mDirect);
+
+        if (ground.IsDamageGround())
+        {
+            TileDamage();
+        }
+        Debug.Log(mLife);
+    
+        if (mState == State.Dead)
+        {
+            Debug.Log("Player dead.");
+        }
+        else if(mState == State.Alive)
+        {
+            Debug.Log("Player Alive.");
+        }
+        else
+        {
+            Debug.Log("Eror");
+        }
+
+        if (ground.IsMoveGround())
+        {
+            AddMoveForce();
+        }
+=======
+>>>>>>> origin/okuda
     }
 }
 
